@@ -14,14 +14,7 @@
   <h3>{{todo.text}}</h3>
   <p *ngIf="todo.done; else elseBlock">Lokti Kusai</p>
   <ng-template #elseBlock>Lokti ne kusai</ng-template>
-  <p>{{todo.created}}</p>
-  <p>{{todo.updated}}</p>
-  <button type="button" (click)="nebo()">
-    Rojdestvenskoe nebo, ulybaesh ty
-  </button>
-</div>
-
-<button 
+  <button 
   type="button"
   class="btn btn-primary"
   data-bs-toggle="modal"
@@ -29,5 +22,7 @@
 >
   Edit!
 </button>
+  <button (click)="!todo.id || deleteTodo(todo.id)">X</button>
+</div>
 
 <app-todo-modal></app-todo-modal>
