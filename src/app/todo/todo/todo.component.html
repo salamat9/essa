@@ -7,16 +7,18 @@
     <div class="position"><img src="../../../icons/Arrow.svg" alt=""></div>
     <input class="input" placeholder="Create todo...">
   </div>
-
   <button class="button" type="submit">Add todo</button>
-
 </form>
 <div class="content">
 
-  <div class="content" *ngFor="let todo of todos">
+  <div *ngFor="let todo of todos">
     <h3>{{todo.text}}</h3>
     <p *ngIf="todo.done; else elseBlock">Lokti Kusai</p>
     <ng-template #elseBlock>Lokti ne kusai</ng-template>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Edit!
+    </button>
     <button (click)="!todo.id || deleteTodo(todo.id)">X</button>
   </div>
-</div>
+
+  <app-todo-modal></app-todo-modal>
