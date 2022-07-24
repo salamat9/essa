@@ -22,14 +22,18 @@
 }
 
 .content {
-  border-bottom: 1px solid rgb(146, 46, 46);
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: lightgrey;
   background-color: rgb(36, 36, 114);
   margin-bottom: 15px;
+  padding: 5px 15px;
+
   .btns {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
   }
 }
 
