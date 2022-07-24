@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { TodoModel } from 'src/app/models/todo.model';
 
-import { Todo } from 'src/app/data/tasks';
 
 @Component({
   selector: 'app-todo-alerts',
@@ -8,6 +8,6 @@ import { Todo } from 'src/app/data/tasks';
   styleUrls: ['./todo-alerts.component.scss'],
 })
 export class TodoAlertsComponent {
-  @Input() todo!: Todo;
+  @Input() todo!: TodoModel;
   @Output() notify = new EventEmitter();
 }
