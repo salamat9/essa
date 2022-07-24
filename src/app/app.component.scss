@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Monda:wght@400;700&family=Montserrat:wght@600&family=Orbitron:wght@400;500;600;700;800;900&family=Red+Hat+Display:wght@700&family=Roboto:wght@100;300;700;900&display=swap");
+
+.main-container {
+  min-height: 100vh;
+  padding: 30px;
+  background-color: #1e1e1e;
+}
+
+.header {
+  font-family: "Monda";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 96px;
+  color: #fefefe;
+}
+
+.background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-content {
+  background-color: #0c0a1f;
+  border-radius: 35px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  width: 40%;
+}

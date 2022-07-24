@@ -1,6 +1,9 @@
-<h2>Todos</h2>
+<div class="input-container">
+  <div class="position"> <img src="../../../icons/Arrow.svg" alt=""></div>
+  <input class="input" type="text" placeholder="create new todo...">
+</div>
 
-<div *ngFor="let todo of todos">
+<div class=" content" *ngFor="let todo of todos">
   <h3>{{todo.text}}</h3>
   <p *ngIf="todo.done; else elseBlock">Lokti Kusai</p>
   <ng-template #elseBlock>Lokti ne kusai</ng-template>
