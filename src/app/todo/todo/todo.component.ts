@@ -12,12 +12,20 @@ export class TodoComponent implements OnInit {
 
   constructor(private todoService: TodoService) {
     this.todos = todoService.getTodos();
-   }
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fetchTodos();
+  }
+
+  fetchTodos(): void {
+    this.todoService.fetchTodos().subscribe(() => {
+      this.todos = this.todoService.getTodos();
+    });
+  }
 
   nebo() {
-    alert('Gimme love')
+    alert('Gimme love');
   }
 
   onNotify() {
