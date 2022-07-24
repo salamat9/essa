@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { TodoModel } from 'src/app/models/todo.model';
 import { TodoService } from './todo.service';
 
@@ -10,12 +11,24 @@ import { TodoService } from './todo.service';
 export class TodoComponent implements OnInit {
   todos: TodoModel[];
 
-  constructor(private todoService: TodoService) {
+  constructor(
+    private todoService: TodoService,
+    private formBuilder: FormBuilder
+  ) {
     this.todos = todoService.getTodos();
   }
 
   ngOnInit(): void {
     this.fetchTodos();
+  }
+
+  todoForm = this.formBuilder.group({
+    text: '',
+  });
+
+  onSubmit(): void {
+    if (!this.todoForm.value.text) return;
+    this.createTodo(this.todoForm.value.text);
   }
 
   fetchTodos(): void {
@@ -24,11 +37,7 @@ export class TodoComponent implements OnInit {
     });
   }
 
-  nebo() {
-    alert('Gimme love');
-  }
-
-  onNotify() {
-    alert('Spinnoi mozg razvit');
+  createTodo(text: string): void {
+    this.todoService.createTodo({ text }).subscribe(() => this.fetchTodos());
   }
 }
