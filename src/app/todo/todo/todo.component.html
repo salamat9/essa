@@ -1,16 +1,13 @@
 <h2>Todos</h2>
 
 <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
-
   <div>
     <label for="text">
       Todo text
     </label>
     <input id="text" type="text" formControlName="text">
   </div>
-
   <button class="button" type="submit">Add todo</button>
-
 </form>
 
 <div *ngFor="let todo of todos">
@@ -24,7 +21,13 @@
   </button>
 </div>
 
-<!-- <app-todo-alerts
-  [todo]="todos"
-  (notify)="onNotify()">
-</app-todo-alerts> -->
+<button 
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  Edit!
+</button>
+
+<app-todo-modal></app-todo-modal>
