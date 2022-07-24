@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo/todo.component';
 import { TodoService } from './todo/todo/todo.service';
-import { TodoAlertsComponent } from './todo/todo-alerts/todo-alerts.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -13,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     TodoComponent,
-    TodoAlertsComponent
   ],
   imports: [
     BrowserModule,
