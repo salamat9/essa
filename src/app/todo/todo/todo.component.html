@@ -19,6 +19,5 @@
       Edit!
     </button>
     <button (click)="!todo.id || deleteTodo(todo.id)">X</button>
+    <app-todo-modal [todo]="todo"></app-todo-modal>
   </div>
-
-  <app-todo-modal></app-todo-modal>

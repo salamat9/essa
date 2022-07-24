@@ -14,6 +14,7 @@ export class TodoModalComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log('hello world', this.todo.text);
   }
 
   @Input() show!: boolean;
