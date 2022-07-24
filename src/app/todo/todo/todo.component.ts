@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 
+import { todos } from 'src/app/data/tasks';
+
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss']
+  styleUrls: ['./todo.component.scss'],
 })
-export class TodoComponent implements OnInit {
+export class TodoComponent {
+  todos = todos;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  nebo() {
+    alert('Gimme love')
   }
 
+  onNotify() {
+    alert('Spinnoi mozg razvit');
+  }
 }
