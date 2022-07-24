@@ -1,43 +1,35 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { TodoModel } from 'src/app/models/todo.model';
 
+function URL(id = ''):string {
+  if (id) id = '/' + id;
+  return `https://todo-1a8da-default-rtdb.asia-southeast1.firebasedatabase.app/todos${id}.json`;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoService {
 
-  todos: any = [];
+  todos: TodoModel[] = [];
 
   constructor(private http: HttpClient) {}
 
-  getTodos() {
-    if (this.todos.length) return this.todos;
-    return this.fetchTodos();
+  getTodos(): TodoModel[] {
+    return this.todos;
   }
 
   fetchTodos(): Observable<any> {
-    return this.http
-      .get('https://my-store-9091b-default-rtdb.firebaseio.com/todos.json')
-      .pipe(
-        tap((data: any) => {
-          const todos = Object.keys(data).map((el) => {
-            return {
-              ...data[el],
-              id: el,
-            };
-          });
-          this.todos = todos;
-        })
-      );
+    return this.http.get(URL());
   }
 
-  createTodo(todo: any) {
-    return this.http.post(
-      'https://my-store-9091b-default-rtdb.firebaseio.com/todos.json',
-      todo
-    );
+  createTodo(todo: TodoModel): Observable<any> {
+    return this.http.post(URL(), todo);
+  }
+
+  deleteTodo(id: string): Observable<any> {
+    return this.http.delete(URL(id));
   }
 }
