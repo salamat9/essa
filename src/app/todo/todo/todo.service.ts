@@ -23,7 +23,9 @@ export class TodoService {
   fetchTodos(): Observable<any> {
     return this.http.get(URL()).pipe(
       tap((data: any) => {
-        this.todos = Object.keys(data).map((el) => ({ ...data[el], id: el }));
+        this.todos = data
+          ? Object.keys(data).map((el) => ({ ...data[el], id: el }))
+          : [];
       })
     );
   }

@@ -40,4 +40,8 @@ export class TodoComponent implements OnInit {
   createTodo(text: string): void {
     this.todoService.createTodo({ text }).subscribe(() => this.fetchTodos());
   }
+
+  deleteTodo(id: string): void {
+    this.todoService.deleteTodo(id).subscribe(() => this.fetchTodos());
+  }
 }
