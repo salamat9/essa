@@ -8,32 +8,36 @@ import { TodoService } from './todo.service';
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
 })
-
 export class TodoComponent implements OnInit {
   todos: TodoModel[];
 
   constructor(
     private todoService: TodoService,
-    private formBuilder: FormBuilder  
+    private formBuilder: FormBuilder
   ) {
     this.todos = todoService.getTodos();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fetchTodos();
+  }
 
   todoForm = this.formBuilder.group({
     text: '',
   });
 
   onSubmit(): void {
-    const text = this.todoForm.value.text 
+    if (!this.todoForm.value.text) return;
+    this.createTodo(this.todoForm.value.text);
   }
 
-  nebo() {
-    alert('Gimme love');
+  fetchTodos(): void {
+    this.todoService.fetchTodos().subscribe(() => {
+      this.todos = this.todoService.getTodos();
+    });
   }
 
-  onNotify() {
-    alert('Spinnoi mozg razvit');
+  createTodo(text: string): void {
+    this.todoService.createTodo({ text }).subscribe(() => this.fetchTodos());
   }
 }

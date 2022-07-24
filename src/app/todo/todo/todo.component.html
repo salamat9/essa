@@ -17,14 +17,4 @@
   <h3>{{todo.text}}</h3>
   <p *ngIf="todo.done; else elseBlock">Lokti Kusai</p>
   <ng-template #elseBlock>Lokti ne kusai</ng-template>
-  <p>{{todo.created}}</p>
-  <p>{{todo.updated}}</p>
-  <button type="button" (click)="nebo()">
-    Rojdestvenskoe nebo, ulybaesh ty
-  </button>
 </div>
-
-<!-- <app-todo-alerts
-  [todo]="todos"
-  (notify)="onNotify()">
-</app-todo-alerts> -->
