@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo/todo.component';
+import { TodoService } from './todo/todo/todo.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { TodoComponent } from './todo/todo/todo.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
