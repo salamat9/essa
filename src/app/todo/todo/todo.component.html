@@ -1,16 +1,18 @@
 <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
 
   <div class="input-container">
-    <label>
+    <!-- <label>
       Todo text
-    </label>
-    <div class="position"><img src="../../../icons/Arrow.svg" alt=""></div>
-    <input class="input" placeholder="Create todo...">
-  </div>
-  <button class="button" type="submit">Add todo</button>
-</form>
-<div class="content">
+    </label> -->
+    <!-- <div class="position"><img src="../../../icons/Arrow.svg" alt=""></div> -->
 
+    <input class="input" placeholder="Create todo...">
+    <button class="button" type="submit">Add</button>
+
+  </div>
+</form>
+
+<div class="content">
   <div *ngFor="let todo of todos">
     <h3>{{todo.text}}</h3>
     <p *ngIf="todo.done; else elseBlock">Lokti Kusai</p>
