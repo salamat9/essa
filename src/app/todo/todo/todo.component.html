@@ -14,11 +14,21 @@
   <!-- <ng-template #elseBlock>Lokti ne kusai</ng-template> -->
 
   <div class="btns">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button 
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      (click)="selectTodo(todo)"
+    >
       Edit!
     </button>
     <button class="btn btn-danger" (click)="!todo.id || deleteTodo(todo.id)">Delete</button>
   </div>
 </div>
 
-<app-todo-modal></app-todo-modal>
+<app-todo-modal 
+  [todo]="selectedTodo"
+  (edit)="onEdit($event)"
+>
+</app-todo-modal>
