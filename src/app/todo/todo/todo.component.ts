@@ -10,7 +10,7 @@ import { TodoService } from './todo.service';
 })
 export class TodoComponent implements OnInit {
   todos: TodoModel[];
-  show = false
+
   constructor(
     private todoService: TodoService,
     private formBuilder: FormBuilder
