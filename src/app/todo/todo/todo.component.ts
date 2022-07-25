@@ -27,6 +27,7 @@ export class TodoComponent implements OnInit {
   });
 
   onSubmit(): void {
+    console.log('fuck: ', this.todoForm.value.text)
     if (!this.todoForm.value.text) return;
     this.createTodo(this.todoForm.value.text);
   }

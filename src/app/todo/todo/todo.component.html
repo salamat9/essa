@@ -1,23 +1,24 @@
 <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
 
   <div class="input-container">
-    <label>
-      Todo text
-    </label>
-    <div class="position"><img src="../../../icons/Arrow.svg" alt=""></div>
-    <input class="input" placeholder="Create todo...">
+    <!-- <button class="position" type="submit"></button>
+      <input class="input" formControlName="text" placeholder="Create todo..."> -->
+    <input class="input" formControlName="text" placeholder="Create todo...">
+    <button class="button" type="submit">Add</button>
   </div>
-  <button class="button" type="submit">Add todo</button>
 </form>
-<div class="content">
 
-  <div *ngFor="let todo of todos">
-    <h3>{{todo.text}}</h3>
-    <p *ngIf="todo.done; else elseBlock">Lokti Kusai</p>
-    <ng-template #elseBlock>Lokti ne kusai</ng-template>
+<div class="content" *ngFor="let todo of todos">
+  <h3>{{todo.text}}</h3>
+  <!-- <p *ngIf="todo.done; else elseBlock">Lokti Kusai</p> -->
+  <!-- <ng-template #elseBlock>Lokti ne kusai</ng-template> -->
+
+  <div class="btns">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Edit!
     </button>
-    <button (click)="!todo.id || deleteTodo(todo.id)">X</button>
-    <app-todo-modal [todo]="todo"></app-todo-modal>
+    <button class="btn btn-danger" (click)="!todo.id || deleteTodo(todo.id)">Delete</button>
   </div>
+</div>
+
+<app-todo-modal></app-todo-modal>
