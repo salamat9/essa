@@ -10,6 +10,7 @@ import { TodoService } from './todo.service';
 })
 export class TodoComponent implements OnInit {
   todos: TodoModel[];
+  selectedTodo?: TodoModel;
 
   constructor(
     private todoService: TodoService,
@@ -27,9 +28,16 @@ export class TodoComponent implements OnInit {
   });
 
   onSubmit(): void {
-    console.log('fuck: ', this.todoForm.value.text)
     if (!this.todoForm.value.text) return;
     this.createTodo(this.todoForm.value.text);
+  }
+
+  onEdit(todo: TodoModel): void {   
+    console.log('this', todo);
+  }
+
+  selectTodo(todo: TodoModel): void {
+    this.selectedTodo = todo
   }
 
   fetchTodos(): void {
